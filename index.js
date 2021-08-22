@@ -1,11 +1,6 @@
 const inquirer = require('inquirer');
-
-const generateFile = () => {
-    // const apache = "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
-    // const mit = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
-    // const gplv2 = "[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)";
-    // const gplv3 = "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)";
-}
+const generateMarkdown = require('./src/template.js');
+const writeFile = require('./utils/generate-md.js');
 
 const promptApp = () => {
     return inquirer.prompt([
@@ -34,7 +29,7 @@ const promptApp = () => {
         },
         {
             type: 'input',
-            name: 'use',
+            name: 'usage',
             message: 'Please provide any usage examples or instructions: [ Press ENTER to SKIP ]'
         },
         {
@@ -72,7 +67,6 @@ const promptApp = () => {
             name: 'email',
             message: 'What is your email address? (Required)',
             validate: nameInput => {
-                // I need validation to check for email address
                 if (nameInput) {
                     return true;
                 } else {
@@ -85,20 +79,9 @@ const promptApp = () => {
 };
 
 promptApp()
-  .then(appData => console.log(appData))
-//   .then(portfolioData => {
-//     return generatePage(portfolioData);
-//   })
-//   .then(pageHTML => {
-//     return writeFile(pageHTML);
-//   })
-//   .then(writeFileResponse => {
-//     console.log(writeFileResponse);
-//     return copyFile();
-//   })
-//   .then(copyFileResponse => {
-//     console.log(copyFileResponse);
-//   })
+  .then(appData => generateMarkdown(appData))
+  .then(markdown => writeFile(markdown))
+  .then(writeFileResponse => console.log(writeFileResponse.message))
   .catch(err => {
     console.log(err);
   });
