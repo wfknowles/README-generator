@@ -8,19 +8,27 @@ const promptApp = () => {
             type: 'input',
             name: 'title',
             message: 'What is the title of your application? (Required)',
-            validate: nameInput => {
-              if (nameInput) {
-                return true;
-              } else {
-                console.log('Please enter a name for your application!');
-                return false;
-              }
+            validate: titleInput => {
+                if (titleInput) {
+                    return true;
+                } else {
+                    console.log('Please enter a name for your application!');
+                    return false;
+                }
             }
         },
         {
             type: 'input',
             name: 'describe',
-            message: 'Please describe your application: [ Press ENTER to SKIP ]'
+            message: 'Please describe your application: (Required)',
+            validate: descInput => {
+                if (descInput) {
+                    return true;
+                } else {
+                console.log('Please enter a description for your application!');
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
@@ -43,18 +51,18 @@ const promptApp = () => {
             message: 'Please provide any testing instructions: [ Press ENTER to SKIP ]'
         },
         {
-            type: 'checkbox',
+            type: 'list',
             name: 'license',
-            message: 'Please select the license(s) for your application: [ Press ENTER to SKIP ]',
-            choices: ['MIT', 'Apache', 'GPLv2', 'GPLv3']
+            message: 'Please select the license(s) for your application:',
+            choices: ['MIT', 'Apache', 'GPLv2', 'GPLv3', 'none']
             
         },
         {
             type: 'input',
             name: 'github',
             message: 'What is your github username? (Required)',
-            validate: nameInput => {
-                if (nameInput) {
+            validate: githubInput => {
+                if (githubInput) {
                     return true;
                 } else {
                     console.log('Please enter your github username!');
@@ -66,8 +74,8 @@ const promptApp = () => {
             type: 'input',
             name: 'email',
             message: 'What is your email address? (Required)',
-            validate: nameInput => {
-                if (nameInput) {
+            validate: emailInput => {
+                if (emailInput) {
                     return true;
                 } else {
                     console.log('Please enter your email address!');

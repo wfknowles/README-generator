@@ -1,7 +1,7 @@
 const generateBadges = license => {
     // console.log('generateBadges', license);
-    if (license.length > 0) {
-        switch (license[0]) {
+    if (license) {
+        switch (license) {
             case 'MIT':
                 return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)\n";
             case 'Apache':
@@ -53,9 +53,20 @@ const generateUsage = usage => {
 };
 
 const generateLicense = license => {
-    // Update License to output link and license copy
     if (license) {
-        return `\n## License\n${license}`;
+        let link = "";
+        switch (license) {
+            case 'MIT':
+                link = "https://opensource.org/licenses/MIT";
+            case 'Apache':
+                link = "https://opensource.org/licenses/Apache-2.0";
+            case 'GPLv2':
+                link = "https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html";
+            case 'GPLv3':
+                link = "https://www.gnu.org/licenses/gpl-3.0";
+        }
+        console.log('generateLicense', license, link);
+        return `\n## License\n${license} ${link}`;
     } else {
         return false;
     }
@@ -63,7 +74,7 @@ const generateLicense = license => {
 
 const generateContribute = contribute => {
     if (valid(contribute)) {
-        return `\n## Contribution\n${contribute}`;
+        return `\n## Contributing\n${contribute}`;
     } else {
         return false;
     }
