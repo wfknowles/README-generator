@@ -65,7 +65,7 @@ const generateLicense = license => {
             case 'GPLv3':
                 link = "https://www.gnu.org/licenses/gpl-3.0";
         }
-        console.log('generateLicense', license, link);
+        // console.log('generateLicense', license, link);
         return `\n## License\n${license} ${link}`;
     } else {
         return false;

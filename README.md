@@ -1,26 +1,35 @@
-# Application Title
+# README Generator
 
 ## Description
-A website to track the weather in multiple locations at once.
+An application that generates a README.md file from user defined input on the command line:
+* Title (Required)
+* Description (Required)
+* Installation
+* Examples
+* Contributing
+* Testing
+* License - MIT, Apache, GPLv2, GPLv3
+* Github Username (Required)
+* Email (Required)
 
-## Table of Contents
-
-* [Installation](#installation)
-* [Usage](#usage)
-* [License](#license)
-* [Contributing](#contributing)
-* [Tests](#tests)
-* [Questions](#questions)
+File generates to the './dist' folder within app directory.
 
 
 ## Installation
+Clone the project to your local machine and install dependencies.
 
-## Usage
+    git clone https://github.com/wfknowles/README-generator.git
+    npm i
 
-## License
+To start application, start node server from within app directory.
 
-## Contributing
+    node index.js
 
-## Tests
+## Contribution
+Made with ❤️ by Will Knowles
 
 ## Questions
+Github: https://github.com/wfknowles/
+Email: will@willknowles.com
+
+©️2021
