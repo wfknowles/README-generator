@@ -25,6 +25,10 @@ Clone the project to your local machine and install dependencies.
 To start application, start node server from within app directory.
 
     node index.js
+    
+## Usage
+[A walkthrough video is available here](https://drive.google.com/file/d/1JTgFu5crfEji1K4QuGA5NKVmbgl8GwVk/view)
+
 
 ## Contribution
 Made with ❤️ by Will Knowles
