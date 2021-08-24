@@ -1,4 +1,5 @@
 # README Generator
+![readme-generator](https://user-images.githubusercontent.com/23103606/130683020-dac4c75f-9f4a-4da8-b1d5-1bb65536909a.jpg)
 
 ## Description
 An application that generates a README.md file from user defined input on the command line:
